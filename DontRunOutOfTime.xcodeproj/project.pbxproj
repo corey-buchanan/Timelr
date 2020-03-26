@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0848C7A242C9AA900EDE106 /* AppTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0848C79242C9AA900EDE106 /* AppTimer.swift */; };
 		F0A6FA452419E10B00A6B86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA442419E10B00A6B86B /* AppDelegate.swift */; };
 		F0A6FA472419E10B00A6B86B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA462419E10B00A6B86B /* SceneDelegate.swift */; };
 		F0A6FA4A2419E10B00A6B86B /* DontRunOutOfTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA482419E10B00A6B86B /* DontRunOutOfTime.xcdatamodeld */; };
-		F0A6FA4C2419E10B00A6B86B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA4B2419E10B00A6B86B /* ContentView.swift */; };
+		F0A6FA4C2419E10B00A6B86B /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA4B2419E10B00A6B86B /* TaskListView.swift */; };
 		F0A6FA4E2419E10D00A6B86B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A6FA4D2419E10D00A6B86B /* Assets.xcassets */; };
 		F0A6FA512419E10D00A6B86B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A6FA502419E10D00A6B86B /* Preview Assets.xcassets */; };
 		F0A6FA542419E10D00A6B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A6FA522419E10D00A6B86B /* LaunchScreen.storyboard */; };
 		F0A6FA5F2419E10D00A6B86B /* DontRunOutOfTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA5E2419E10D00A6B86B /* DontRunOutOfTimeTests.swift */; };
 		F0A6FA6A2419E10D00A6B86B /* DontRunOutOfTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA692419E10D00A6B86B /* DontRunOutOfTimeUITests.swift */; };
+		F0A6FA782419E17E00A6B86B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA772419E17E00A6B86B /* Task.swift */; };
+		F0A6FA7A2419E23D00A6B86B /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA792419E23D00A6B86B /* TaskViewModel.swift */; };
+		F0A6FA7C2419E77500A6B86B /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6FA7B2419E77500A6B86B /* TaskView.swift */; };
+		F0EF64F4241B280A0044352F /* TaskEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF64F3241B280A0044352F /* TaskEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F0A6FA412419E10B00A6B86B /* DontRunOutOfTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DontRunOutOfTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0848C79242C9AA900EDE106 /* AppTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTimer.swift; sourceTree = "<group>"; };
+		F0A6FA412419E10B00A6B86B /* Timelr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A6FA442419E10B00A6B86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0A6FA462419E10B00A6B86B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F0A6FA492419E10B00A6B86B /* DontRunOutOfTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DontRunOutOfTime.xcdatamodel; sourceTree = "<group>"; };
-		F0A6FA4B2419E10B00A6B86B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F0A6FA4B2419E10B00A6B86B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		F0A6FA4D2419E10D00A6B86B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0A6FA502419E10D00A6B86B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F0A6FA532419E10D00A6B86B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,10 @@
 		F0A6FA652419E10D00A6B86B /* DontRunOutOfTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DontRunOutOfTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A6FA692419E10D00A6B86B /* DontRunOutOfTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontRunOutOfTimeUITests.swift; sourceTree = "<group>"; };
 		F0A6FA6B2419E10D00A6B86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0A6FA772419E17E00A6B86B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F0A6FA792419E23D00A6B86B /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		F0A6FA7B2419E77500A6B86B /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		F0EF64F3241B280A0044352F /* TaskEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +101,7 @@
 		F0A6FA422419E10B00A6B86B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0A6FA412419E10B00A6B86B /* DontRunOutOfTime.app */,
+				F0A6FA412419E10B00A6B86B /* Timelr.app */,
 				F0A6FA5A2419E10D00A6B86B /* DontRunOutOfTimeTests.xctest */,
 				F0A6FA652419E10D00A6B86B /* DontRunOutOfTimeUITests.xctest */,
 			);
@@ -101,9 +111,14 @@
 		F0A6FA432419E10B00A6B86B /* DontRunOutOfTime */ = {
 			isa = PBXGroup;
 			children = (
+				F0A6FA772419E17E00A6B86B /* Task.swift */,
+				F0A6FA792419E23D00A6B86B /* TaskViewModel.swift */,
 				F0A6FA442419E10B00A6B86B /* AppDelegate.swift */,
 				F0A6FA462419E10B00A6B86B /* SceneDelegate.swift */,
-				F0A6FA4B2419E10B00A6B86B /* ContentView.swift */,
+				F0A6FA4B2419E10B00A6B86B /* TaskListView.swift */,
+				F0848C79242C9AA900EDE106 /* AppTimer.swift */,
+				F0EF64F3241B280A0044352F /* TaskEditView.swift */,
+				F0A6FA7B2419E77500A6B86B /* TaskView.swift */,
 				F0A6FA4D2419E10D00A6B86B /* Assets.xcassets */,
 				F0A6FA522419E10D00A6B86B /* LaunchScreen.storyboard */,
 				F0A6FA552419E10D00A6B86B /* Info.plist */,
@@ -156,7 +171,7 @@
 			);
 			name = DontRunOutOfTime;
 			productName = DontRunOutOfTime;
-			productReference = F0A6FA412419E10B00A6B86B /* DontRunOutOfTime.app */;
+			productReference = F0A6FA412419E10B00A6B86B /* Timelr.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F0A6FA592419E10D00A6B86B /* DontRunOutOfTimeTests */ = {
@@ -271,9 +286,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0A6FA452419E10B00A6B86B /* AppDelegate.swift in Sources */,
+				F0A6FA7C2419E77500A6B86B /* TaskView.swift in Sources */,
+				F0A6FA7A2419E23D00A6B86B /* TaskViewModel.swift in Sources */,
 				F0A6FA4A2419E10B00A6B86B /* DontRunOutOfTime.xcdatamodeld in Sources */,
-				F0A6FA4C2419E10B00A6B86B /* ContentView.swift in Sources */,
+				F0EF64F4241B280A0044352F /* TaskEditView.swift in Sources */,
+				F0A6FA782419E17E00A6B86B /* Task.swift in Sources */,
+				F0A6FA4C2419E10B00A6B86B /* TaskListView.swift in Sources */,
 				F0A6FA472419E10B00A6B86B /* SceneDelegate.swift in Sources */,
+				F0848C7A242C9AA900EDE106 /* AppTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,8 +467,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.btechdog.DontRunOutOfTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btechdog.Timelr;
+				PRODUCT_NAME = Timelr;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -467,8 +488,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.btechdog.DontRunOutOfTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btechdog.Timelr;
+				PRODUCT_NAME = Timelr;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
