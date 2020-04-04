@@ -14,17 +14,17 @@ struct TaskListView: View {
     @EnvironmentObject var taskViewModel : TaskViewModel
     
     @State var showEdit = false
+    @State var canceled = false
     @State var editedTask : Task?
-    
-    init() {
-    }
     
     var body: some View {
         NavigationView {
             VStack {
-                
                 if (!showEdit) {
-                    Button(action: {self.showEdit = true}, label: {
+                    Button(action: {
+                        self.editedTask = nil
+                        self.showEdit = true
+                    }, label: {
                         Image("TimelrPlus")
                         .resizable()
                         .frame(width: 64, height: 64)
@@ -34,7 +34,10 @@ struct TaskListView: View {
                         .padding()
                 } else {
                     HStack {
-                        Button(action: {self.showEdit = false}, label: {
+                        Button(action: {
+                            self.canceled = true
+                            self.showEdit = false
+                        }, label: {
                             Image("TimelrPlus")
                             .resizable()
                             .frame(width: 64, height: 64)
@@ -43,7 +46,10 @@ struct TaskListView: View {
                             .shadow(radius: 5)
                             .rotationEffect(Angle(degrees: 45))
                             .padding()
-                        Button(action: {self.showEdit = false}, label: {
+                        Button(action: {
+                            self.canceled = false
+                            self.showEdit = false
+                        }, label: {
                             Image("TimelrPlus")
                             .resizable()
                             .frame(width: 64, height: 64)
@@ -56,12 +62,17 @@ struct TaskListView: View {
                 }
                 
                 if (showEdit) {
-                    TaskEditView(task: editedTask)
+                    TaskEditView(cancelled: $canceled, task: $editedTask)
                 }
                 
                 List {
                     ForEach(taskViewModel.taskList) { task in
-                        TaskView(date: self.appTimer.date, task: task)
+                        Button(action: {
+                            self.editedTask = task
+                            self.showEdit = true
+                        }, label: {
+                            TaskView(date: self.appTimer.date, task: task)
+                        })
                     }
                     .onDelete(perform: taskViewModel.deleteTask(at:))
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))

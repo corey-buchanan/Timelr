@@ -15,16 +15,8 @@ struct TaskEditView: View {
     @State var title: String = ""
     @State var due: Date = Date(timeIntervalSinceNow: 86400)
     
-    var task: Task?
-    
-    init(task: Task?) {
-        self.task = task
-        
-        if (self.task != nil) {
-            self.title = task!.title
-            self.due = task!.due
-        }
-    }
+    @Binding var cancelled: Bool
+    @Binding var task: Task?
     
     var body: some View {
         Form {
@@ -32,10 +24,21 @@ struct TaskEditView: View {
             DatePicker(selection: $due) {
                 Text("Select Due Date")
             }
-        }.onDisappear(perform: addTask)
+        }
+        .onAppear(perform: {
+            if (self.task != nil) {
+                self.title = self.task!.title
+                self.due = self.task!.due
+            }
+        })
+        .onDisappear(perform: addTask)
     }
     
     func addTask() {
+        if (cancelled) {
+            return
+        }
+        
         if (task != nil) {
             taskViewModel.updateTask(task: task!, title: title, due: due)
         } else {
