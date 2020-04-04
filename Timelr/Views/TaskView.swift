@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TaskView: View {
     
+    @EnvironmentObject var taskViewModel : TaskViewModel
+    
     var date: Date
     var task: Task
     
@@ -19,63 +21,88 @@ struct TaskView: View {
         
         let numberSize: CGFloat = 20
         let labelSize: CGFloat = 12
-        let numberWidth: CGFloat = 55
+        let numberWidth: CGFloat = 60
         
         return ZStack {
             
             if (task.due < date){
-                Color(red: 201/255, green: 69/255, blue: 12/255)
+                Color(red: 184/255, green: 37/255, blue: 4/255)
             } else {
                 Color(red: 0/255, green: 101/255, blue: 146/255)
             }
             
-            VStack {
-                Text(task.title).font(.custom("AvenirNext-Bold", size: 20))
-                HStack {
-                    VStack { Text(String((timeDifference).day!))
-                        .font(.custom("Futura", size: numberSize))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-                        Text("D")
-                        .font(.custom("Futura", size: labelSize))
-                    }
-                    .frame(width: numberWidth)
-                
-                
-                    VStack { Text(String((timeDifference).hour!))
-                        .font(.custom("Futura", size: numberSize))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-                        Text("H")
-                        .font(.custom("Futura", size: labelSize))
-                    }
-                    .frame(width: numberWidth)
-                
-                
-                    VStack { Text(String((timeDifference).minute!))
-                        .font(.custom("Futura", size: numberSize))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-                        Text("M")
-                        .font(.custom("Futura", size: labelSize))
-                    }
-                    .frame(width: numberWidth)
-                
-                
-                    VStack { Text(String((timeDifference).second!))
-                        .font(.custom("Futura", size: numberSize))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-                        Text("S")
-                        .font(.custom("Futura", size: labelSize))
-                    }
-                    .frame(width: numberWidth)
+            HStack {
+                VStack {
                     
+                    Text(task.title).font(.custom("AvenirNext-Bold", size: 20))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                        
+                    HStack {
+                        VStack { Text(String((timeDifference).day!))
+                            .font(.custom("Futura", size: numberSize))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            Text("D")
+                            .font(.custom("Futura", size: labelSize))
+                        }
+                        .frame(width: numberWidth)
+                    
+                    
+                        VStack { Text(String((timeDifference).hour!))
+                            .font(.custom("Futura", size: numberSize))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            Text("H")
+                            .font(.custom("Futura", size: labelSize))
+                        }
+                        .frame(width: numberWidth)
+                    
+                    
+                        VStack { Text(String((timeDifference).minute!))
+                            .font(.custom("Futura", size: numberSize))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            Text("M")
+                            .font(.custom("Futura", size: labelSize))
+                        }
+                        .frame(width: numberWidth)
+                    
+                    
+                        VStack { Text(String((timeDifference).second!))
+                            .font(.custom("Futura", size: numberSize))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            Text("S")
+                            .font(.custom("Futura", size: labelSize))
+                        }
+                        .frame(width: numberWidth)
+                        
+                        }
+                    
+                    }.foregroundColor(Color.white)
+                
+                Spacer()
+                
+                Button(action: toggglePriority, label: {
+                    if (task.priority) {
+                        Image(systemName: "star.fill").foregroundColor(.white)
+                    } else {
+                        Image(systemName: "star").foregroundColor(.white)
                     }
-                }.foregroundColor(Color.white)
-            .padding(5)
+                }).font(.largeTitle)
+                
+            }.padding(.horizontal, 10)
+                .padding(.vertical, 5)
+            
         }
     }
+    
+    func toggglePriority() {
+        print("Toggling")
+        taskViewModel.updateTask(task: task, title: task.title, due: task.due, priority: !task.priority)
+    }
+    
 }
 
 struct TaskView_Previews: PreviewProvider {

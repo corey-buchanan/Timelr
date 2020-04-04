@@ -14,6 +14,7 @@ public class Task : NSManagedObject, Identifiable {
     @NSManaged public var created : Date
     @NSManaged public var title: String
     @NSManaged public var due: Date
+    @NSManaged public var priority: Bool
     
     static func getTasksRequest() -> NSFetchRequest<Task> {
         let request : NSFetchRequest<Task> = NSFetchRequest<Task>(entityName: "Task")

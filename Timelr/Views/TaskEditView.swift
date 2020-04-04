@@ -11,27 +11,25 @@ import SwiftUI
 struct TaskEditView: View {
     
     @EnvironmentObject var taskViewModel : TaskViewModel
-    
     @State var title: String = ""
     @State var due: Date = Date(timeIntervalSinceNow: 86400)
+    @State var priority: Bool = false
     
     @Binding var cancelled: Bool
     @Binding var task: Task?
     
     var body: some View {
-        Form {
-            TextField("Task", text: $title)
-            DatePicker(selection: $due) {
-                Text("Select Due Date")
+            Form {
+                Toggle(isOn: $priority, label: {
+                    Text("Priority")
+                })
+                TextField("Task", text: $title)
+                DatePicker(selection: $due) {
+                    Text("Due Date")
+                }
             }
-        }
-        .onAppear(perform: {
-            if (self.task != nil) {
-                self.title = self.task!.title
-                self.due = self.task!.due
-            }
-        })
-        .onDisappear(perform: addTask)
+            .onAppear(perform: updateEditFields)
+            .onDisappear(perform: addTask)
     }
     
     func addTask() {
@@ -40,18 +38,27 @@ struct TaskEditView: View {
         }
         
         if (task != nil) {
-            taskViewModel.updateTask(task: task!, title: title, due: due)
+            taskViewModel.updateTask(task: task!, title: title, due: due, priority: priority)
         } else {
             if title != "" {
-                taskViewModel.createTask(title: title, due: due)
+                taskViewModel.createTask(title: title, due: due, priority: priority)
             }
+        }
+    }
+    
+    func updateEditFields() {
+        if (self.task != nil) {
+            self.title = self.task!.title
+            self.due = self.task!.due
+            self.priority = self.task!.priority
         }
     }
     
 }
 
-//struct TaskEditView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TaskEditView(task: Task(title: "Defeat ISIS", due: Date(timeIntervalSinceNow: 86400)), newTask: true)
-//    }
-//}
+struct TaskEditView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        TaskEditView(cancelled: .constant(false), task: .constant(nil))
+    }
+}

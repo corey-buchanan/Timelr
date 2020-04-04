@@ -1,6 +1,6 @@
 //
 //  TaskViewModel.swift
-//  DontRunOutOfTime
+//  Timelr
 //
 //  Created by Corey Buchanan on 3/11/20.
 //  Copyright © 2020 Corey Buchanan. All rights reserved.
@@ -15,6 +15,8 @@ class TaskViewModel : ObservableObject {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @Published var taskList : [Task] = []
+    
+    // Dead code here - we need a mechanism for showing the error
     @Published var showError : Bool = false
     
     init() {
@@ -32,11 +34,12 @@ class TaskViewModel : ObservableObject {
         
     }
     
-    func createTask(title: String, due: Date) {
+    func createTask(title: String, due: Date, priority: Bool) {
         let task = Task(context: context)
         task.created = Date()
         task.title = title
         task.due = due
+        task.priority = priority
         
         saveContext()
     }
@@ -50,9 +53,10 @@ class TaskViewModel : ObservableObject {
         saveContext()
     }
     
-    func updateTask(task: Task, title: String, due: Date) {
+    func updateTask(task: Task, title: String, due: Date, priority: Bool) {
         task.setValue(title, forKey: "title")
         task.setValue(due, forKey: "due")
+        task.setValue(priority, forKey: "priority")
         
         saveContext()
     }

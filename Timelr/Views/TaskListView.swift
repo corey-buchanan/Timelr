@@ -1,6 +1,6 @@
 //
 //  TaskListView.swift
-//  DontRunOutOfTime
+//  Timelr
 //
 //  Created by Corey Buchanan on 3/11/20.
 //  Copyright © 2020 Corey Buchanan. All rights reserved.
@@ -25,11 +25,10 @@ struct TaskListView: View {
                         self.editedTask = nil
                         self.showEdit = true
                     }, label: {
-                        Image("TimelrPlus")
+                        Image("Timelr-Plus")
                         .resizable()
                         .frame(width: 64, height: 64)
                     }).buttonStyle(PlainButtonStyle())
-                        .clipShape(Circle())
                         .shadow(radius: 5)
                         .padding()
                 } else {
@@ -38,23 +37,20 @@ struct TaskListView: View {
                             self.canceled = true
                             self.showEdit = false
                         }, label: {
-                            Image("TimelrPlus")
+                            Image("Timelr-Cancel")
                             .resizable()
                             .frame(width: 64, height: 64)
                         }).buttonStyle(PlainButtonStyle())
-                            .clipShape(Circle())
                             .shadow(radius: 5)
-                            .rotationEffect(Angle(degrees: 45))
                             .padding()
                         Button(action: {
                             self.canceled = false
                             self.showEdit = false
                         }, label: {
-                            Image("TimelrPlus")
+                            Image("Timelr-Check")
                             .resizable()
                             .frame(width: 64, height: 64)
                         }).buttonStyle(PlainButtonStyle())
-                            .clipShape(Circle())
                             .shadow(radius: 5)
                             .padding()
                     }
